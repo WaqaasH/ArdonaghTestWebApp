@@ -1,0 +1,57 @@
+﻿@using ArdonaghTestWebApp.ViewModels;
+@model CustomerViewModel
+@{
+    ViewData["Title"] = "Customer Page";
+}
+
+<div><button class="btn btn-primary add-edit-customer">Add</button></div>
+
+<div class="">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Age</th>
+                <th>PostCode</th>
+                <th>Height</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var customer in Model.ExistingCustomers)
+            {
+                <tr>
+                    <td>
+                        @customer.Name
+                    </td>
+                    <td>
+                        @customer.Age
+                    </td>
+                    <td>
+                        @customer.PostCode
+                    </td>
+                    <td>
+                        @customer.Height
+                    </td>
+                    <td>
+                        <button class="btn btn-primary add-edit-customer" data-customer-id="@customer.Id">Edit</button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<div class="modal" id="addEditCustomerModal" tabindex="-1" role="dialog" aria-labelledby="addEditCustomerModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Customer</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+            </div>
+        </div>
+    </div>
+</div>
